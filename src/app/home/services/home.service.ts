@@ -12,23 +12,16 @@ export class HomeService {
   getTabs(){
     return this.http.get<TopMenu[]>(
       `${environment.baseUrl}/tabs`, 
-      {
-        params: {icode: `${environment.icode}`}
-      });
+    );
   }
   getChannels(){
     return this.http.get<Channel[]>(
-      `${environment.baseUrl}/channels`, 
-      {
-        params: {icode: `${environment.icode}`}
-      });
+      `${environment.baseUrl}/channels`);
   }
   getBanners(){
     return this.http.get<ImageSlider[]>(
       `${environment.baseUrl}/banners`, 
-      {
-        params: {icode: `${environment.icode}`}
-      });
+    );
   }
 }
 

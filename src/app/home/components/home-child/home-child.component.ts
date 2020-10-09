@@ -15,7 +15,7 @@ export class HomeChildComponent implements OnInit, AfterViewChecked {
   }
   
   public get title() : string {
-    console.log('脏值检测')
+    //console.log('脏值检测')
     return this._title;
   }
   

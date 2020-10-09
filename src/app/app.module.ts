@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import localZh from '@angular/common/locales/zh-Hans';
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NotificationInterceptor, ParamInterceptor } from './home';
 
 @NgModule({
   //模块中有哪些组件、指令、管道，需要声明
@@ -27,6 +28,16 @@ import { HttpClientModule } from '@angular/common/http';
     {
       provide: LOCALE_ID,
       useValue: 'zh-Hans'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ParamInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NotificationInterceptor,
+      multi: true
     }
   ],
   //引导组件
