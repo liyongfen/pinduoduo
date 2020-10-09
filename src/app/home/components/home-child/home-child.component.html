@@ -1,0 +1,10 @@
+<p>
+  home-child works!
+</p>
+<span [textContent]="title"></span>
+<p [textContent]="time | date: 'HH:mm:ss:SSS'"></p>
+<p>
+  倒计时：
+  <span #timeRef></span>
+</p>
+<button (click)="handleClick($event)">触发脏值检测</button>

@@ -1,0 +1,28 @@
+<div *ngIf="selectedTabLink === 'hot' else other" >
+  <app-image-slider [sliders]="imageSliders" #imageSlider></app-image-slider>
+  <app-horizontal-grid [(username)]="username">
+    <span appGridItem *ngFor="let item of channels">
+      <img [src]="item.icon" alt="" [appGridItemImage]="'4rem'" [fitMode]="'cover'" />
+      <span appGridItemTitle="1rem">{{item.title}}</span>
+    </span> 
+    <div class="special">
+      <div  [appGridItemImage]="'4rem'" style="background-color: red;"></div>
+      <span appGridItemTitle="1rem">hello</span>
+    </div> 
+  </app-horizontal-grid>
+  <div>你好，{{username}}</div>
+</div>
+<ng-template #other>
+  other words
+</ng-template>
+<!-- <a [routerLink]="['grand']">go to grand</a> -->
+<a 
+  [routerLink]="[ 'grand' ]" 
+  routerLinkActive="active"
+  [queryParams]="{name: 'zhangsan', age: 27}"
+>go to grand</a>
+<a 
+  [routerLink]="[{'outlets': {second: ['aux']}} ]" 
+>go to second</a>
+<router-outlet></router-outlet>
+<router-outlet name="second"></router-outlet>

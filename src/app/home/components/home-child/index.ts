@@ -1,0 +1,1 @@
+export * from './home-child.component'
